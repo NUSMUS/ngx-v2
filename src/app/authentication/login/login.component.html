@@ -1,0 +1,50 @@
+<div class="d-flex align-items-stretch min-height-100 h-100">
+  <div class="bg-cover bg-1 hidden-sm-down col-md-6 col-lg-8"></div>
+  <div class="card card-block mb-0 rounded-0 p-5 col-sm-12 col-md-6 col-lg-4">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <img src="assets/images/logo.png" class="avatar-xs mb-1" alt="">
+        <p class="ff-headers text-uppercase">Iniciar Sesión</p>
+      </div>
+      <fieldset class="form-group" [ngClass]="{'has-danger': loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched}">
+        <label for="email" class="form-control-label">
+          Ingresa tu Correo Electronico
+        </label>
+        <input type="email" class="form-control" placeholder="Correo Electronico" [formControl]="loginForm.controls['email']" [ngClass]="{'form-control-danger': loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched}"/>
+        <div class="form-control-feedback" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched"></div>
+        <div class="form-control-feedback" *ngIf="loginForm.controls['email'].hasError('email') && loginForm.controls['email'].touched">{{ erroresForm.email }}</div>
+      </fieldset>
+      <fieldset class="form-group" [ngClass]="{'has-danger': loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched}">
+        <label for="password" class="form-control-label">
+          Ingresa tu Contraseña
+        </label>
+        <input type="password" class="form-control" placeholder="********" [formControl]="loginForm.controls['password']" [ngClass]="{'form-control-danger': loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched}"/>
+        <div class="form-control-feedback" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">{{ erroresForm.password }}</div>
+        <a [routerLink]="['/reminder']" class="form-text"><small>Recuperar Contraseña</small></a>
+      </fieldset>
+      <div class="block"></div>
+      <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+      <a class="btn btn-outline-primary btn-link" [routerLink]="['/register']">¡Nueva cuenta!</a>
+    </form>
+    <br>
+    <p class="alert alert-danger" *ngIf="mensaje">
+        El correo electronico u contraseña son incorrectos.
+    </p>
+    <button class="btn btn-icon btn-facebook mb-1 mr-1">
+      <i class="fa fa-facebook"></i>
+      Iniciar sesión mediante Facebook
+    </button>
+    <button class="btn btn-icon btn-github mb-1 mr-1">
+      <i class="fa fa-github"></i>
+      Iniciar sesión mediante GitHub
+    </button>
+    <button class="btn btn-icon btn-google mb-1 mr-1">
+      <i class="fa fa-google-plus"></i>
+      Iniciar sesión mediante Google
+    </button>
+    <button class="btn btn-icon btn-twitter mb-1 mr-1">
+      <i class="fa fa-twitter"></i>
+      Iniciar sesión mediante Twitter
+    </button>
+  </div>
+</div>
