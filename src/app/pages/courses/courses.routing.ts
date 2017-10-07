@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { ListComponent } from './list/list.component';
+import { LessonsComponent } from './lessons/lessons.component';
 
 export const CoursesComponent: Routes = [
   {
@@ -10,6 +11,12 @@ export const CoursesComponent: Routes = [
       component: ListComponent,
       data: {
         heading: 'List'
+      }
+    }, {
+      path: 'lessons',
+      component: LessonsComponent,
+      data: {
+        heading: 'Lessons'
       }
     }]
   }

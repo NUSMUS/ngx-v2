@@ -6,10 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoursesComponent } from './courses.routing';
 
 import { ListComponent } from './list/list.component';
+import { LessonsComponent } from './lessons/lessons.component';
 
 @NgModule({
   declarations: [
-    ListComponent
+    ListComponent,
+    LessonsComponent
   ],
   imports: [
     CommonModule,

@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ReminderComponent } from './reminder.component';
 
-import { ReminderRoutingModule } from './reminder.routing.module';
+import { ReminderRoutingModule } from './reminder.routing';
 
 @NgModule({
   imports: [

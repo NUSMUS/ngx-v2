@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-import { DashboardRoutingModule } from './dashboard.routing.module';
+import { DashboardRoutingModule } from './dashboard.routing';
 
 @NgModule({
   imports: [

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   erroresForm = {
     'email': '',
     'password': ''
-  }
+  };
 
   mensajesValidacion = {
     'email': {
@@ -29,14 +29,18 @@ export class LoginComponent implements OnInit {
       'pattern': 'La contraseña debe tener al menos una letra, un numero',
       'minlength': ' y más de 6 caracteres'
     }
-  }
+  };
 
-  
-  constructor(private formBuilder: FormBuilder, private router: Router, private autService: AutenticacionService, private activatedRouter: ActivatedRoute) {}
+
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private autService: AutenticacionService,
+              private activatedRouter: ActivatedRoute) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group ( {
-      'email': [null , Validators.compose ( [ Validators.required, Validators.email ] )] , 
+      'email': [null , Validators.compose ( [ Validators.required, Validators.email ] )] ,
+      // tslint:disable-next-line:max-line-length
       'password': [null , Validators.compose ( [ Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(6) ] )]
     });
     this.loginForm.valueChanges.subscribe(data =>
@@ -49,11 +53,13 @@ export class LoginComponent implements OnInit {
       return;
     }
     const form = this.loginForm;
+    // tslint:disable-next-line:forin
     for (const field in this.erroresForm) {
       this.erroresForm[field] = '';
       const control = form.get(field);
       if (control && control.dirty && !control.valid) {
         const messages = this.mensajesValidacion[field];
+        // tslint:disable-next-line:forin
         for (const key in control.errors) {
           this.erroresForm[field] += messages[key] + '';
         }
@@ -62,14 +68,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    //Dentro del servicio auth
+    // Dentro del servicio auth
     this.userdata = this.saveUserdata();
     this.autService.inicioSesion(this.userdata);
     setTimeout(() => {
-      if (this.isAuth() === false ) {
-      } else {
-        this.mensaje = true;
+      if (this.isAuth() === false) {
+        this.mensaje = false;
       }
+      this.mensaje = true;
     }, 1000);
   }
 

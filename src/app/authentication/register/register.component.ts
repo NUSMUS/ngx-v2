@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
       // tslint:disable-next-line:max-line-length
       'password': [null , Validators.compose ( [ Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'), Validators.minLength(6) ] )],
       'confirm': [null , Validators.compose ( [ Validators.required ] )],
-      'checked': [null , Validators.compose ( [ Validators.required ] )],
+      // 'checked': [null , Validators.compose ( [ Validators.required ] )],
     });
     this.registroForm.valueChanges.subscribe(data =>
       this.onValueChanged(data));

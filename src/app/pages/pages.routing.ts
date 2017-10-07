@@ -11,7 +11,8 @@ const pagesRoutes: Routes = [
     children: [
       { path: '', loadChildren: './dashboard/dashboard.module#DashboardModule', canActivate: [GuardService] },
       { path: 'courses', loadChildren: './courses/courses.module#CoursesModule', canActivate: [GuardService] },
-      { path: '**', redirectTo: 'dashboard' }
+      { path: '404', loadChildren: './error404/error404.module#Error404Module', canActivate: [GuardService] },
+      { path: '**', redirectTo: '404' }
     ]
   }
 ];
